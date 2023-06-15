@@ -24,12 +24,16 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', [HomeController::class, 'index']);
+
 Route::get('/facultades/listado', [Facultades::class, 'index'])->name('listadoFac');
 Route::get('/facultades/registrar',[Facultades::class, 'form_registro']);
 Route::post('/facultades/registrar',[Facultades::class, 'registrar']);
 Route::get('/facultades/eliminar/{id}',[Facultades::class, 'eliminar'])->name('eliminaFac');
 
-Route::get('/programas/listado', [Programas::class, 'index']);
+Route::get('/programas/listado', [Programas::class, 'index'])->name('listadoPro');
+Route::get('/programas/registrar',[Programas::class, 'form_registro']);
+Route::post('/programas/registrar',[Programas::class, 'registrar']);
+Route::get('/programas/eliminar/{id}',[Programas::class, 'eliminar'])->name('eliminaPro');
 
 Route::get('/estudiantes/listado', [Estudiantes::class, 'index']);
 
