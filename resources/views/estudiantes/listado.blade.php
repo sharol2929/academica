@@ -10,6 +10,36 @@
 
 @section('content')
     <p>Listado de Estudiantes</p>
+    <a class="btn btn-success" href="/estudiantes/registrar">Adicionar</a>
+    <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Codigo</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Opciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @php
+                $i=1;
+            @endphp
+            @foreach ($estudiante as $f)
+            <tr>
+                <th scope="row">{{$i}}</th>
+                <td> {{ $f->codestudiante}}</td>
+                <td> {{ $f->nomestudiante}}</td>
+                <td>
+                    <a class="btn btn-primary">Editar</a>
+                    <a class="btn btn-danger" href="{{route('eliminaEst',$f->codestudiante)}}">Eliminar</a>
+                </td>
+            </tr>
+            @php
+                $i = $i +1
+            @endphp
+            @endforeach
+        </tbody>
+    </table>
 
 @stop
 
