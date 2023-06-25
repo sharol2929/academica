@@ -31,4 +31,13 @@ class Facultades extends Controller
         $facultad->delete();
         return redirect()->route('listadoFac');
     }
+
+    public function editar(Request $r, $id){
+        $facultad = FacultadModel::findOrFail($id);
+        $facultad->codFacultad = $r->input('codigoFacultad');
+        $facultad->nomFacultad = $r->input('nombreFacultad');
+        $facultad->save();
+
+        return redirect()->route('listadoFac');
+    }
 }

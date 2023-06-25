@@ -30,13 +30,15 @@
                 <td> {{ $f->codFacultad}}</td>
                 <td> {{ $f->nomFacultad}}</td>
                 <td>
-                    <a class="btn btn-primary">Editar</a>
+                    <a class="btn btn-primary" data-toggle="modal" data-target="#editaFac{{ $f->codFacultad }}">Editar</a>
                     <a class="btn btn-danger" href="{{route('eliminaFac',$f->codFacultad)}}">Eliminar</a>
                 </td>
             </tr>
             @php
                 $i = $i +1
             @endphp
+            <!--Ventana Modal para Actualizar--->
+            @include('facultades.editar')
             @endforeach
         </tbody>
     </table>
